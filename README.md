@@ -8,20 +8,13 @@ Follow the instructions for each of the following code samples in [Compliler Exp
 
 1. [printf](https://godbolt.org/z/y2YKew)
    1. What is the library function that is called?
-The library fuction is called printf(). Which is part of the stdio library.
-
    2. Research the implementation (source code) of this function.
    3. Find out if the program directly executes the output operation or it makes a *system call* to the operating system.
-   The stdio library uses systemcalls to operarting system IO funcitons. On POSIX systems it makes use of the read and write functions. On windows, the library makes calls to ReadFile and WriteFile to imp
-   lement IO. Since IO is very hardware dependent so it has to be implemented in the Operarting System or Kernel beofre it's accessed by the high level C libraries.
 2. [malloc](https://godbolt.org/z/kAZX7x)
    1. How are the arguments passed to `malloc` and `free`?
-     Malloc only takes a single argument. Which is the amount of memory that you'd like to allocate in bytes. Malloc doesn't care about types or the size of types. Malloc only cares about bytes. 
    2. Research the implementation (source code) of `malloc` and `free`.
-   
 3. [malloc array](https://godbolt.org/z/bBl0zx)
    1. How does this case differ from the previous one?
-The first example was just allocating the space for an int. The secound example is allocating enough memory for 100 ints. 
    2. [**hard**] Write your own tiny `malloc` library by declaring a large `FILL` area and writing a `malloc` and a `free` subroutines that manage allocations to that memory area. 
       1. `malloc` works approximately as follows:
          - it takes as argument the number of bytes requested
@@ -71,7 +64,8 @@ The first example was just allocating the space for an int. The secound example 
         4. Put the code of the [`negate.c`](https://github.com/ivogeorg/cs2400-arm-asm-negate-exercise/blob/master/negate.c) file in the left pane
         5. The compiler will generate the assembly for the long `negate` program, that is not directly executable in VisUAL
         6. The file [`negate_gcc_8_2.S`](https://github.com/ivogeorg/cs2400-arm-asm-negate-exercise/blob/master/negate_gcc_8_2.S) contains the assembly ported to VisUAL
-      - special attention on:
+      - special attention on:  1. What is the library function that is called?
+The library function is called printf(). Which is part of the stdio library.
         1. Unsupported instructions (Just **Execute** on VisUAL and it will mark them)
            - in particular, `BX` is not supported, so you will need to use a new label or `MOV pc, rl` to return from a subroutine
         2. Memory regions (VisUAL only supports `DCD` and `FILL` directives)
@@ -94,4 +88,19 @@ The first example was just allocating the space for an int. The secound example 
 4. Push your commits to your remote.
 5. For research-type questions, answer inline in the [README](README.md).
 6. **Important:** Submit the URL of your remote repository on [Google Classroom](https://classroom.google.com/u/0/c/Mjc5MjgxMTQ2NzZa/a/MzQ5MDAyMjczMDFa/details), as a private comment.
+
+## Answers
+  1. What is the library function that is called?
+The library function is called printf(). Which is part of the stdio library.
+3. Find out if the program directly executes the output operation or it makes a *system call* to the operating system.
+   The stdio library uses systemcalls to operarting system IO funcitons. On POSIX systems it makes use of the read and write functions. On windows, the library makes calls to ReadFile and WriteFile to imp
+   lement IO. Since IO is very hardware dependent so it has to be implemented in the Operarting System or Kernel beofre it's accessed by the high level C libraries.
+1. How are the arguments passed to `malloc` and `free`?
+     Malloc only takes a single argument. Which is the amount of memory that you'd like to allocate in bytes. Malloc doesn't care about types or the size of types. Malloc only cares about bytes.
+
+1. How does this case differ from the previous one?
+The first example was just allocating the space for an int. The secound example is allocating enough memory for 100 ints. 
+
+
+
 
