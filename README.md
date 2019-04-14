@@ -8,15 +8,20 @@ Follow the instructions for each of the following code samples in [Compliler Exp
 
 1. [printf](https://godbolt.org/z/y2YKew)
    1. What is the library function that is called?
+The library fuction is called printf(). Which is part of the stdio library.
+
    2. Research the implementation (source code) of this function.
    3. Find out if the program directly executes the output operation or it makes a *system call* to the operating system.
-   
+   The stdio library uses systemcalls to operarting system IO funcitons. On POSIX systems it makes use of the read and write functions. On windows, the library makes calls to ReadFile and WriteFile to imp
+   lement IO. Since IO is very hardware dependent so it has to be implemented in the Operarting System or Kernel beofre it's accessed by the high level C libraries.
 2. [malloc](https://godbolt.org/z/kAZX7x)
    1. How are the arguments passed to `malloc` and `free`?
+     Malloc only takes a single argument. Which is the amount of memory that you'd like to allocate in bytes. Malloc doesn't care about types or the size of types. Malloc only cares about bytes. 
    2. Research the implementation (source code) of `malloc` and `free`.
    
 3. [malloc array](https://godbolt.org/z/bBl0zx)
    1. How does this case differ from the previous one?
+The first example was just allocating the space for an int. The secound example is allocating enough memory for 100 ints. 
    2. [**hard**] Write your own tiny `malloc` library by declaring a large `FILL` area and writing a `malloc` and a `free` subroutines that manage allocations to that memory area. 
       1. `malloc` works approximately as follows:
          - it takes as argument the number of bytes requested
