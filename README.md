@@ -93,8 +93,7 @@ The library function is called printf(). Which is part of the stdio library.
   1. What is the library function that is called? <br/>
 The library function is called printf(). Which is part of the stdio library.
 3. Find out if the program directly executes the output operation or it makes a *system call* to the operating system. <br/>
-   The stdio library uses systemcalls to operarting system IO funcitons. On POSIX systems it makes use of the read and write functions. On windows, the library makes calls to ReadFile and WriteFile to imp
-   lement IO. Since IO is very hardware dependent so it has to be implemented in the Operarting System or Kernel beofre it's accessed by the high level C libraries.
+   The stdio library uses systemcalls to operarting system IO funcitons. On POSIX systems, it makes use of the read and write functions. On windows, the library makes calls to ReadFile and WriteFile to implement IO. Since IO is very hardware dependent so it has to be implemented in the Operarting System or Kernel beofre it's accessed by the high level C libraries.
 1. How are the arguments passed to `malloc` and `free`? <br/>
      Malloc only takes a single argument. Which is the amount of memory that you'd like to allocate in bytes. Malloc doesn't care about types or the size of types. Malloc only cares about bytes.
 
